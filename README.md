@@ -1,24 +1,8 @@
 ### SQLのメモを記載
 
-- Mysqlにログイン(rootログインのパスワード付き)
-```
-mysql -u root -p
-```
+Section1_テーブルの構造
+→ https://github.com/yhidetoshi/sql_memo/blob/master/section1.md
 
-#### DB/Table操作のコマンド
-- databaseを表示
-```
-mysql> show databases;
-```
-- tableを表示
-```
-mysql> show tables;
-```
-
-- databaseを作成
-```
-mysql> create database <name_DB>;
-```
 
 #### import_sample1.sqlを実行する
 ```
