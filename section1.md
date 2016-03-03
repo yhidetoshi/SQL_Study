@@ -28,7 +28,12 @@ mysql> create database <name_DB>;
 
 - Tableを削除[DROP]
 ```
-drop tables <table_name>;
+mysql> drop tables <table_name>;
+```
+
+- テーブル名を変更
+```
+mysql> ALTER TABLE <変更前のTable_name> RENAME TO <変更後のTable_name>
 ```
 
 
@@ -43,3 +48,15 @@ mysql> ALTER TABLE <テーブル名> DROP COLUMN <列名>;
 → (ex) ALTER TABLE Shohin DROP COLUMN shohin_name_kana;
 ```
 
+
+
+#### DML(Data Manipulation Language )
+→ データベースを管理・操作するための言語の一種
+MySQLでは
+```
+BEGIN TRANSACTION;
+
+  SQL実行文を記述
+
+COMMIT;
+```
