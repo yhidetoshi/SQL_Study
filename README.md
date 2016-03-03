@@ -15,3 +15,8 @@ mysql> show databases;
 mysql> create database <name_DB>;
 ```
 
+#### import.sqlを実行する
+```
+SOURCE /<file_path>/import.sql
+```
+
