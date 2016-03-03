@@ -10,6 +10,11 @@ mysql -u root -p
 ```
 mysql> show databases;
 ```
+- tableを表示
+```
+mysql> show tables;
+```
+
 - databaseを作成
 ```
 mysql> create database <name_DB>;
@@ -17,6 +22,7 @@ mysql> create database <name_DB>;
 
 #### import_sample1.sqlを実行する
 ```
-SOURCE /<file_path>/import_sample1.sql
+mysql> SOURCE /<file_path>/import_sample1.sql
 ```
+
 
