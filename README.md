@@ -12,7 +12,7 @@ mysql -u root -p
 ```
 - .sqlを実行 
 ```
-mysql> SOURCE /<file_path>/import_sample1.sql
+mysql> SOURCE /<file_path>/<file_name>.sql
 ```
 
 
