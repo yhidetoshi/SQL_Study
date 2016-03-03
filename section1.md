@@ -26,4 +26,8 @@ mysql> show tables;
 mysql> create database <name_DB>;
 ```
 
+- Tableを削除
+```
+drop tables <table_name>;
+```
 　
