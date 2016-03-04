@@ -5,6 +5,10 @@
 - むやみに改行を入れない
 - 結果から重複行を省く場合にはSELECT句にDISTINCTをつける
   - 複数NULLがあっても1つにまとめられる/先頭におく
+- SELECT句には定数も式も記述できる
+- NULLを含む計算は全て答えがNULLになる
+- 比較演算子
+  - 不等号が左側, イコールが右側 
 
 #### KYEWORD
 - SELECT文
@@ -14,6 +18,7 @@
 - AS
 - DISTINCT
 - WHERE句
+
 
 
 #### SELECT文
@@ -70,7 +75,7 @@ SELECT <列名1>,...,<列名N>
   WHERE <条件式>;
 
 (例)
-SELECT shohin_mei, hanbai_tanka
+mysql> SELECT shohin_mei, hanbai_tanka
 	  FROM Shohin
   WHERE hanbai_tanka = '300';
 +--------------------+--------------+
@@ -80,5 +85,48 @@ SELECT shohin_mei, hanbai_tanka
 | フォーク           |          300 |
 +--------------------+--------------+
 ```
+
+- コメント
+ - 1行コメント(--)
+ - 複数行コメント(/*	*/)
+
+
+- (例)算術演算子_価格を2倍
+```
+mysql> SELECT shohin_mei, hanbai_tanka,
+       shohin_tanka * 2 AS "shohin_tanka_x2"
+   WHERE Shohin;
+
++-----------------------+--------------+-----------------+
+| shohin_mei            | hanbai_tanka | hanbai_tanka_x2 |
++-----------------------+--------------+-----------------+
+| Tシャツ               |         1000 |            2000 |       
+```
+
+- 比較演算子_500以外
+```
+mysql> SELECT shohin_mei, shohin_bunrui
+   FROM Shohin
+ WHERE hanbai_tanka <> 500;
+
++-----------------------+--------------------+
+| shohin_mei            | shohin_bunrui      |
++-----------------------+--------------------+
+| Tシャツ               | 衣服               |
+| カッターシャツ        | 衣服               |
+```
+
+- 比較演算子(WHERE句で計算)
+```
+SELECT shohin_mei, hanbai_tanka, shiire_tanka
+   FROM Shohin
+ WHERE hanbai_tanka - shiire_tanka >= 500;
+
++-----------------------+--------------+--------------+
+| shohin_mei            | hanbai_tanka | shiire_tanka |
++-----------------------+--------------+--------------+
+| Tシャツ               |         1000 |          500 |
+```
+
 
 
