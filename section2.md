@@ -3,7 +3,8 @@
 #### Rules
 - アスタリスク(*)は全列を意味する
 - むやみに改行を入れない
-
+- 結果から重複行を省く場合にはSELECT句にDISTINCTをつける
+  - 複数NULLがあっても1つにまとめられる/先頭におく
 
 #### KYEWORD
 - SELECT文
@@ -11,6 +12,8 @@
 - 句
   - SELECT句, FROM句 
 - AS
+- DISTINCT
+- WHERE句
 
 
 #### SELECT文
@@ -54,4 +57,28 @@ mysql> SELECT 'Goods' AS Goooods, 100 AS total_num, '2016-0304' AS hizuke, shohi
 +---------+-----------+-----------+-----------+-----------------------+
 | Goods   |       100 | 2016-0304 | 0001      | Tシャツ               |
 ```
+
+- 重複を省く(DISTINCT)
+```
+mysql> SELECT DISTINCT <列名> FROM <テーブル名>;
+```
+
+- SELECT文のWHERE句
+```
+SELECT <列名1>,...,<列名N>
+    FROM <テーブル名>
+  WHERE <条件式>;
+
+(例)
+SELECT shohin_mei, hanbai_tanka
+	  FROM Shohin
+  WHERE hanbai_tanka = '300';
++--------------------+--------------+
+| shohin_mei         | hanbai_tanka |
++--------------------+--------------+
+| スプーン           |          300 |
+| フォーク           |          300 |
++--------------------+--------------+
+```
+
 
