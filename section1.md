@@ -1,4 +1,4 @@
-### SQL(Structured Query Language)のメモを記載
+### テーブルの構成/SQL文/テーブル操作/テーブル登録
 
 #### Rules
 - RDBでは行単位でデータを読み書きする
