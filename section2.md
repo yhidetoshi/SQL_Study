@@ -10,7 +10,6 @@
   - クエリ：問い合わせ 
 - 句
   - SELECT句, FROM句 
-- *
 - AS
 
 
@@ -32,5 +31,27 @@ SELECT shohin_id, shohin_mei, shiire_tanka FROM Shohin;
 mysql> SELECT * FROM <table名>;
 (例)
 SELECT * FROM Shohin;
+```
+
+- 列に別名をつける(AS)
+```
+SELECT hoge_id    AS id,
+       hoge_mei   AS name,
+       hoge_tanka AS tanka
+  FROM <テーブル名>;
++------+-----------------------+-------+
+| id   | name                  | tanka |
++------+-----------------------+-------+
+| 0001 | Tシャツ               |   500 |
+```
+
+-  定数を出力
+```
+mysql> SELECT 'Goods' AS Goooods, 100 AS total_num, '2016-0304' AS hizuke, shohin_id, shohin_mei
+  FROM Shohin;
++---------+-----------+-----------+-----------+-----------------------+
+| Goooods | total_num | hizuke    | shohin_id | shohin_mei            |
++---------+-----------+-----------+-----------+-----------------------+
+| Goods   |       100 | 2016-0304 | 0001      | Tシャツ               |
 ```
 
