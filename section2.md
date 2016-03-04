@@ -9,6 +9,8 @@
 - NULLを含む計算は全て答えがNULLになる
 - 比較演算子
   - 不等号が左側, イコールが右側 
+  - <> 100：100以外
+  - <> NULLはできないので IS NULLを使う <--> IS NOT NULL
 
 #### KYEWORD
 - SELECT文
@@ -18,6 +20,7 @@
 - AS
 - DISTINCT
 - WHERE句
+- AND/OR演算子
 
 
 
@@ -118,7 +121,7 @@ mysql> SELECT shohin_mei, shohin_bunrui
 
 - 比較演算子(WHERE句で計算)
 ```
-SELECT shohin_mei, hanbai_tanka, shiire_tanka
+mysql> SELECT shohin_mei, hanbai_tanka, shiire_tanka
    FROM Shohin
  WHERE hanbai_tanka - shiire_tanka >= 500;
 
@@ -128,5 +131,40 @@ SELECT shohin_mei, hanbai_tanka, shiire_tanka
 | Tシャツ               |         1000 |          500 |
 ```
 
+- 論理演算子(販売単価が1000円以上)
+```
+mysql> SELECT shohin_mei, shohin_bunrui, hanbai_tanka 
+   FROM Shohin
+ WHERE hanbai_tanka >= 1000;
+ 
++-----------------------+--------------------+--------------+
+| shohin_mei            | shohin_bunrui      | hanbai_tanka |
++-----------------------+--------------------+--------------+
+| Tシャツ               | 衣服               |         1000 |
+```
 
+- 論理演算子(販売単価が1000円以下)
+```
+mysql> SELECT shohin_mei, shohin_bunrui, hanbai_tanka 
+   FROM Shohin
+ WHERE NOT hanbai_tanka >= 1000;
+ 
++--------------------+--------------------+--------------+
+| shohin_mei         | shohin_bunrui      | hanbai_tanka |
++--------------------+--------------------+--------------+
+| フォーク           | キッチン用品       |          500 |
+```
 
+- 論理演算子(AND/OR演算子組み合わせ)
+```
+mysql> SELECT shohin_mei, hanbai_tanka
+       FROM Shohin  
+  WHERE torokubi = '2009-09-20' AND hanbai_tanka >= 1000;
+
++------------+--------------+
+| shohin_mei | hanbai_tanka |
++------------+--------------+
+| Tシャツ    |         1000 |
+| 包丁       |         3000 |
++------------+--------------+
+```
