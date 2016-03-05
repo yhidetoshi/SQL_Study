@@ -2,8 +2,8 @@
 
 #### Rules
 - COUNT関数は引数によって動作が異なる
-  -　COUNT(*)はNULLを含む行数を数える
-  -　COUNT(<列名>)はNULLを除外した行数を数える
+  - COUNT(*)はNULLを含む行数を数える
+  - COUNT(<列名>)はNULLを除外した行数を数える
 
 
 #### KYEWORD
