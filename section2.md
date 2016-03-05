@@ -12,6 +12,7 @@
   - <> 100：100以外
   - <> NULLはできないので IS NULLを使う <--> IS NOT NULL
 
+
 #### KYEWORD
 - SELECT文
   - クエリ：問い合わせ 
