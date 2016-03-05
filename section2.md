@@ -169,3 +169,18 @@ mysql> SELECT shohin_mei, hanbai_tanka
 | 包丁       |         3000 |
 +------------+--------------+
 ```
+
+- 論理演算子(AND/ORを括弧で優先度を変更)
+```
+mysql> SELECT shohin_mei, hanbai_tanka, shiire_tanka
+   FROM Shohin 
+ WHERE ( hanbai_tanka > 1000 OR shiire_tanka < 1000 ) AND torokubi = '2009-09-20';
+
++------------+--------------+--------------+
+| shohin_mei | hanbai_tanka | shiire_tanka |
++------------+--------------+--------------+
+| Tシャツ    |         1000 |          500 |
+| 包丁       |         3000 |         2800 |
++------------+--------------+--------------+
+```
+
