@@ -17,6 +17,11 @@
 
 → https://github.com/yhidetoshi/sql_study/blob/master/Section4.md
 
+#### Section5 (ビューとテーブル/サブクエリ/相関サブクエリ)
+
+→ https://github.com/yhidetoshi/sql_study/blob/master/Section5.md
+
+
 #### MySQLコマンドメモ
 - Mysqlにrootログイン
 ```
