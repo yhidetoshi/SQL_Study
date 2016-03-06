@@ -12,9 +12,26 @@
   - TRUNCATE <table_name>; 
 - UPDATE文でNULLを入れるこも可能.(制約にNOT NULLでなければ) 
 
+- トランザクション
+  - データベースに対する1つ以上の更新をまとめて呼ぶときの名称
+    -INSERT/DELETE/UPDATEなどをまとめて 	
 
-#### KYEWORD
-- 
+- ROLLBACK
+  - スタート地点まで一気にUターンする
+
+- ACID特性
+  - 原子性(Atomicity)
+    - トランザクションが終わった時に更新処理は全て実行されるか,されない状態で終わる事を保証する 
+  
+  - 一貫性(Consistency)
+    - 制約に違反するレコードを挿入するSQL文はエラーになり実行されない
+   
+  - 独立性(Isolation)
+    - トランザクション同士が互いに干渉を受けない事を保証する性質 
+
+  - 永続性(Durability)
+    - トランザクションが終了したあとはそのデータの情報が保存される事を保証するもの 
+
 
 #### INSERT
 - INSERTでデータを1行追加する
@@ -215,3 +232,19 @@ UPDATE Shohin
   WHERE shohin_bunrui = 'キッチン用品';
 ```
 
+#### Transaction
+- トランザクション構文
+```
+START TRANSACTION;
+
+   -- カッターシャツの販売単価を1000円引き
+   UPDATE Shohin
+      SET hanbai_tanka = hanbai_tanka - 1000
+     WHERE shohin_mei = 'カッターシャツ';
+   
+   -- Tシャツの販売単価を1000値上げ
+   UPDATE Shohin
+      SET hanbai_tanka = hanbai_tanka + 1000
+     WHERE shohin_mei = 'Tシャツ';
+COMMIT;
+```
