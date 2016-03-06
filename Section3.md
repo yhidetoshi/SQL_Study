@@ -403,3 +403,19 @@ mysql> SELECT shohin_id, shohin_mei, hanbai_tanka, shiire_tanka
 | 0008      | ボールペン            |          100 |         NULL |
 +-----------+-----------------------+--------------+--------------+
 ```
+
+
+- テーブルデータを加工して他のテーブルにコピーする
+```
+mysql> INSERT INTO ShohinBunrui (shohin_bunrui, sum_hanbai_tanka, sum_shiire_tanka)
+  SELECT shohin_bunrui, SUM(hanbai_tanka), SUM(shiire_tanka) FROM Shohin GROUP BY shohin_bunrui;
+
+
+mysql> SELECT * FROM ShohinBunrui;                                                                          +--------------------+------------------+------------------+
+| shohin_bunrui      | sum_hanbai_tanka | sum_shiire_tanka |
++--------------------+------------------+------------------+
+| キッチン用品       |            11180 |             8590 |
+| 事務用品           |              600 |              320 |
+| 衣服               |             5000 |             3300 |
++--------------------+------------------+------------------+
+```
