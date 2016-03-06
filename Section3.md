@@ -5,6 +5,8 @@
   - COUNT(*)はNULLを含む行数を数える
   - COUNT(<列名>)はNULLを除外した行数を数える
 - 集約関数で計算する場合、NULLがあれば除外して計算する
+- MAX/MIN関数はほとんど全てのデータ型に適用できる
+- SUM/AVG関数は数値のみにしか適用できない
 
 #### KYEWORD
 - COUNT
@@ -51,7 +53,7 @@ mysql> SELECT SUM(hanbai_tanka) FROM Shohin;
 +-------------------+
 ```
 
-- 合計を求める(2つの列)
+- 合計を求める(2つの列の場合)
 ```
 mysql> SELECT SUM(hanbai_tanka), SUM(shiire_tanka) FROM Shohin;
 +-------------------+-------------------+
@@ -64,6 +66,7 @@ mysql> SELECT SUM(hanbai_tanka), SUM(shiire_tanka) FROM Shohin;
 - 平均を求める
 ```
 mysql> SELECT AVG(hanbai_tanka) FROM Shohin;
+
 +-------------------+
 | AVG(hanbai_tanka) |
 +-------------------+
@@ -71,4 +74,29 @@ mysql> SELECT AVG(hanbai_tanka) FROM Shohin;
 +-------------------+
 ```
 
-- 
+- 平均を求める(2つの列の場合)
+```
+mysql> SELECT AVG(hanbai_tanka), AVG(shiire_tanka) FROM Shohin;
+
++-------------------+-------------------+
+| AVG(hanbai_tanka) | AVG(shiire_tanka) |
++-------------------+-------------------+
+|         2097.5000 |         2035.0000 |
++-------------------+-------------------+
+```
+
+- 最大値と最小値を求める
+```
+mysql> SELECT MAX(hanbai_tanka), MIN(shiire_tanka) FROM Shohin;
+
++-------------------+-------------------+
+| MAX(hanbai_tanka) | MIN(shiire_tanka) |
++-------------------+-------------------+
+|              6800 |               320 |
++-------------------+-------------------+
+```
+
+- 日付の最大値と最小値を求めることができる
+```
+
+```
