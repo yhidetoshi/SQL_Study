@@ -206,8 +206,7 @@ UPDATE Shohin
 	SET shiire_tanka = shiire_tanka / 2 
   WHERE shohin_bunrui = 'キッチン用品';
 ```
-          ↓↓↓
-          
+↓↓↓
 - 処理を1つのUPDATE文にする
 ```
 UPDATE Shohin 
