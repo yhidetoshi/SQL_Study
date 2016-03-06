@@ -3,7 +3,10 @@
 #### Rules
 - 原則としてINSERT文は1回の実行で1行を挿入する
 - VALUE句の値リストは列数が一致しないとエラーになる
-
+- NULLを入れることができるのは『NOT NULL』と定義してないこと
+- DEFAULT制約
+  - CREATE TABLEの中でDEFAULTを定義する 
+- 
 
 #### KYEWORD
 - 
@@ -49,4 +52,34 @@ mysql> SELECT * FROM ShohinIns;
 ```
 INSERT INTO ShohinIns 
   VALUES ('0005', 'Aturyokunabe', 'kitchen', 6800, 5000, '2009-01-15');
+
+mysql> SELECT * FROM ShohinIns;
++-----------+--------------+---------------+--------------+--------------+------------+
+| shohin_id | shohin_mei   | shohin_bunrui | hanbai_tanka | shiire_tanka | torokubi   |
++-----------+--------------+---------------+--------------+--------------+------------+
+| 0005      | Aturyokunabe | kitchen       |         6800 |         5000 | 2009-01-15 |
++-----------+--------------+---------------+--------------+--------------+------------+
+```
+
+- NULLを登録する
+```
+INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) 
+  VALUES ('0006', 'Fork', 'kitchen', 500, NULL, '2009-09-20');
+
+mysql> SELECT * FROM ShohinIns;
++-----------+--------------+---------------+--------------+--------------+------------+
+| shohin_id | shohin_mei   | shohin_bunrui | hanbai_tanka | shiire_tanka | torokubi   |
++-----------+--------------+---------------+--------------+--------------+------------+
+| 0006      | Fork         | kitchen       |          500 |         NULL | 2009-09-20 |
+```
+
+- DEFAULT定義 (hanbai_tanka  INTEGER      DEFAULT 0) を使ってデータを登録してみる
+```
+mysql> INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi)       VALUES ('0007', 'Oroshigane', 'kitchen', DEFAULT, 790, '2009-04-28');
+
+mysql> SELECT * FROM ShohinIns;                                                                                                                              +-----------+--------------+---------------+--------------+--------------+------------+
+| shohin_id | shohin_mei   | shohin_bunrui | hanbai_tanka | shiire_tanka | torokubi   |
++-----------+--------------+---------------+--------------+--------------+------------+
+| 0007      | Oroshigane   | kitchen       |            0 |          790 | 2009-04-28 |
++-----------+--------------+---------------+--------------+--------------+------------+
 ```
