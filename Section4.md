@@ -5,9 +5,8 @@
 - VALUE句の値リストは列数が一致しないとエラーになる
 - NULLを入れることができるのは『NOT NULL』と定義してないこと
 - DEFAULT制約
-  - CREATE TABLEの中でDEFAULTを定義する 
+  - CREATE TABLEの中でDEFAULTを定義する
 - DEFAULT定義をしていてデータ項目の定義と値を省略してもデフォルトの値が挿入される
-- 
 
 #### KYEWORD
 - 
