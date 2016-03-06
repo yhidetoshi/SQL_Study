@@ -12,7 +12,7 @@
 - INSERTでデータを1行追加する
 ```
 mysql> INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) 
-VALUES ('0001', 'T-shirts', 'Ihuku', 1000, 500, '2009-09-20');
+  VALUES ('0001', 'T-shirts', 'Ihuku', 1000, 500, '2009-09-20');
 
 mysql> SELECT * FROM ShohinIns;
 +-----------+------------+---------------+--------------+--------------+------------+
@@ -22,16 +22,16 @@ mysql> SELECT * FROM ShohinIns;
 +-----------+------------+---------------+--------------+--------------+------------+
 ```
 
-- 3件のデータを追加
+- 3件のデータを追加(NULLも追加)
 ```
 INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) 
-VALUES ('0002', 'Anaakepanchi', 'Jimu', 500, 320, '2009-09-11');
+  VALUES ('0002', 'Anaakepanchi', 'Jimu', 500, 320, '2009-09-11');
 
 INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) 
-VALUES ('0003', 'K-shirts', 'Ihuku', 4000, 2800, NULL);
+  VALUES ('0003', 'K-shirts', 'Ihuku', 4000, 2800, NULL);
 
 INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) 
-VALUES ('0004', 'Knife', 'kitchen', 3000, 2800, '2009-09-20');
+  VALUES ('0004', 'Knife', 'kitchen', 3000, 2800, '2009-09-20');
 
 
 mysql> SELECT * FROM ShohinIns;
@@ -43,4 +43,10 @@ mysql> SELECT * FROM ShohinIns;
 | 0003      | K-shirts     | Ihuku         |         4000 |         2800 | NULL       |
 | 0004      | Knife        | kitchen       |         3000 |         2800 | 2009-09-20 |
 +-----------+--------------+---------------+--------------+--------------+------------+
+```
+
+- 1行を追加(列無し)
+```
+INSERT INTO ShohinIns 
+  VALUES ('0005', 'Aturyokunabe', 'kitchen', 6800, 5000, '2009-01-15');
 ```
