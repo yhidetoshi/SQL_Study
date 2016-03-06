@@ -10,6 +10,7 @@
 - 一部の行を削除するときはWHERE句で対象行の条件を記述する
 - TRUNCATE(切り捨てる)
   - TRUNCATE <table_name>; 
+- UPDATE文でNULLを入れるこも可能.(制約にNOT NULLでなければ) 
 
 
 #### KYEWORD
@@ -193,5 +194,25 @@ mysql> SELECT * FROM Shohin ORDER BY shohin_id;
 | 0007      | おろしがね         | キッチン用品       |          880 |          790 | 2009-10-10 |
 | 0008      | ボールペン         | 事務用品           |         1000 |         NULL | NULL       |
 +-----------+--------------------+--------------------+--------------+--------------+------------+
+```
+
+- 正しく更新できるが冗長なUPDATE文
+```
+UPDATE Shohin 
+	SET hanbai_tanka = hanbai_tanka * 10 
+  WHERE shohin_bunrui = 'キッチン用品';
+
+UPDATE Shohin 
+	SET shiire_tanka = shiire_tanka / 2 
+  WHERE shohin_bunrui = 'キッチン用品';
+```
+          ↓↓↓
+          
+- 処理を1つのUPDATE文にする
+```
+UPDATE Shohin 
+	SET hanbai_tanka = hanbai_tanka * 10, 
+ 		shiire_tanka = shiire_tanka / 2 
+  WHERE shohin_bunrui = 'キッチン用品';
 ```
 
