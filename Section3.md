@@ -23,7 +23,8 @@
 #### COUNT
 - テーブルの全行数を数える
 ```
-mysql> SELECT COUNT(*) FROM Shohin;
+mysql> SELECT COUNT(*) 
+  FROM Shohin;
 
 +----------+
 | COUNT(*) |
@@ -34,7 +35,8 @@ mysql> SELECT COUNT(*) FROM Shohin;
 
 - テーブルのNULLを除外して行数を数える
 ```
-mysql> SELECT COUNT(shiire_tanka) FROM Shohin;
+mysql> SELECT COUNT(shiire_tanka) 
+  FROM Shohin;
 
 +---------------------+
 | COUNT(shiire_tanka) |
@@ -45,7 +47,8 @@ mysql> SELECT COUNT(shiire_tanka) FROM Shohin;
 
 - 合計を求める(1つの列)
 ```
-mysql> SELECT SUM(hanbai_tanka) FROM Shohin;
+mysql> SELECT SUM(hanbai_tanka) 
+  FROM Shohin;
 +-------------------+
 | SUM(hanbai_tanka) |
 +-------------------+
@@ -55,7 +58,8 @@ mysql> SELECT SUM(hanbai_tanka) FROM Shohin;
 
 - 合計を求める(2つの列の場合)
 ```
-mysql> SELECT SUM(hanbai_tanka), SUM(shiire_tanka) FROM Shohin;
+mysql> SELECT SUM(hanbai_tanka), SUM(shiire_tanka) 
+  FROM Shohin;
 +-------------------+-------------------+
 | SUM(hanbai_tanka) | SUM(shiire_tanka) |
 +-------------------+-------------------+
@@ -65,7 +69,8 @@ mysql> SELECT SUM(hanbai_tanka), SUM(shiire_tanka) FROM Shohin;
 
 - 平均を求める
 ```
-mysql> SELECT AVG(hanbai_tanka) FROM Shohin;
+mysql> SELECT AVG(hanbai_tanka) 
+  FROM Shohin;
 
 +-------------------+
 | AVG(hanbai_tanka) |
@@ -76,7 +81,8 @@ mysql> SELECT AVG(hanbai_tanka) FROM Shohin;
 
 - 平均を求める(2つの列の場合)
 ```
-mysql> SELECT AVG(hanbai_tanka), AVG(shiire_tanka) FROM Shohin;
+mysql> SELECT AVG(hanbai_tanka), AVG(shiire_tanka) 
+  FROM Shohin;
 
 +-------------------+-------------------+
 | AVG(hanbai_tanka) | AVG(shiire_tanka) |
@@ -87,7 +93,8 @@ mysql> SELECT AVG(hanbai_tanka), AVG(shiire_tanka) FROM Shohin;
 
 - 最大値と最小値を求める
 ```
-mysql> SELECT MAX(hanbai_tanka), MIN(shiire_tanka) FROM Shohin;
+mysql> SELECT MAX(hanbai_tanka), MIN(shiire_tanka) 
+  FROM Shohin;
 
 +-------------------+-------------------+
 | MAX(hanbai_tanka) | MIN(shiire_tanka) |
@@ -98,7 +105,8 @@ mysql> SELECT MAX(hanbai_tanka), MIN(shiire_tanka) FROM Shohin;
 
 - 日付の最大値と最小値を求めることができる
 ```
-mysql> SELECT MAX(torokubi), MIN(torokubi) FROM Shohin;
+mysql> SELECT MAX(torokubi), MIN(torokubi) 
+  FROM Shohin;
 +---------------+---------------+
 | MAX(torokubi) | MIN(torokubi) |
 +---------------+---------------+
@@ -108,7 +116,8 @@ mysql> SELECT MAX(torokubi), MIN(torokubi) FROM Shohin;
 
 - 重複を除外して行数をカウント(重複を除外してからカウントされるので結果:3)
 ```
-mysql> SELECT COUNT(DISTINCT shohin_bunrui) FROM Shohin;
+mysql> SELECT COUNT(DISTINCT shohin_bunrui) 
+  FROM Shohin;
 
 +-------------------------------+
 | COUNT(DISTINCT shohin_bunrui) |
@@ -119,11 +128,40 @@ mysql> SELECT COUNT(DISTINCT shohin_bunrui) FROM Shohin;
 
   -　(注意:良くない例)数を数えてから重複をカウントになるので結果:8
 ```
-mysql> SELECT DISTINCT COUNT(shohin_bunrui) FROM Shohin;
+mysql> SELECT DISTINCT COUNT(shohin_bunrui) 
+  FROM Shohin;
 +----------------------+
 | COUNT(shohin_bunrui) |
 +----------------------+
 |                    8 |
 +----------------------+
+```
+
+- 最初は重複なしで合計、２つ目は重複を除外して合計
+```
+mysql> SELECT SUM(hanbai_tanka), SUM(DISTINCT hanbai_tanka) 
+  FROM Shohin;
++-------------------+----------------------------+
+| SUM(hanbai_tanka) | SUM(DISTINCT hanbai_tanka) |
++-------------------+----------------------------+
+|             16780 |                      16280 |
++-------------------+----------------------------+
+```
+
+#### テーブルをグループに切り分ける
+ → (例) 商品ごと、登録日こととか
+
+- 商品分類ごとの個数を調べる
+```
+mysql> SELECT shohin_bunrui, COUNT(*) 
+  FROM Shohin
+GROUP BY shohin_bunrui;
++--------------------+----------+
+| shohin_bunrui      | COUNT(*) |
++--------------------+----------+
+| キッチン用品       |        4 |
+| 事務用品           |        2 |
+| 衣服               |        2 |
++--------------------+----------+
 ```
 
