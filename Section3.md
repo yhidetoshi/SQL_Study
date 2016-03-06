@@ -98,5 +98,32 @@ mysql> SELECT MAX(hanbai_tanka), MIN(shiire_tanka) FROM Shohin;
 
 - 日付の最大値と最小値を求めることができる
 ```
-
+mysql> SELECT MAX(torokubi), MIN(torokubi) FROM Shohin;
++---------------+---------------+
+| MAX(torokubi) | MIN(torokubi) |
++---------------+---------------+
+| 2009-11-11    | 2008-04-28    |
++---------------+---------------+
 ```
+
+- 重複を除外して行数をカウント(重複を除外してからカウントされるので結果:3)
+```
+mysql> SELECT COUNT(DISTINCT shohin_bunrui) FROM Shohin;
+
++-------------------------------+
+| COUNT(DISTINCT shohin_bunrui) |
++-------------------------------+
+|                             3 |
++-------------------------------+
+```
+
+  -　(注意:良くない例)数を数えてから重複をカウントになるので結果:8
+```
+mysql> SELECT DISTINCT COUNT(shohin_bunrui) FROM Shohin;
++----------------------+
+| COUNT(shohin_bunrui) |
++----------------------+
+|                    8 |
++----------------------+
+```
+
