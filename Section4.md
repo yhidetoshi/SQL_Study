@@ -24,11 +24,14 @@ mysql> SELECT * FROM ShohinIns;
 
 - 3件のデータを追加
 ```
-INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) VALUES ('0002', 'Anaakepanchi', 'Jimu', 500, 320, '2009-09-11');
+INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) 
+VALUES ('0002', 'Anaakepanchi', 'Jimu', 500, 320, '2009-09-11');
 
-INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) VALUES ('0003', 'K-shirts', 'Ihuku', 4000, 2800, NULL);
+INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) 
+VALUES ('0003', 'K-shirts', 'Ihuku', 4000, 2800, NULL);
 
-INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) VALUES ('0004', 'Knife', 'kitchen', 3000, 2800, '2009-09-20');
+INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) 
+VALUES ('0004', 'Knife', 'kitchen', 3000, 2800, '2009-09-20');
 
 
 mysql> SELECT * FROM ShohinIns;
