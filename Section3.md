@@ -173,7 +173,7 @@ mysql> SELECT SUM(hanbai_tanka), SUM(DISTINCT hanbai_tanka)
 ```
 mysql> SELECT shohin_bunrui, COUNT(*) 
   FROM Shohin
-GROUP BY shohin_bunrui;
+ GROUP BY shohin_bunrui;
 +--------------------+----------+
 | shohin_bunrui      | COUNT(*) |
 +--------------------+----------+
@@ -185,7 +185,9 @@ GROUP BY shohin_bunrui;
 
 - 仕入れ単価ごとに行数を調べる
 ```
-mysql> SELECT shiire_tanka, COUNT(*) FROM Shohin GROUP BY shiire_tanka;
+mysql> SELECT shiire_tanka, COUNT(*) 
+  FROM Shohin 
+ GROUP BY shiire_tanka;
 
 +--------------+----------+
 | shiire_tanka | COUNT(*) |
@@ -201,7 +203,9 @@ mysql> SELECT shiire_tanka, COUNT(*) FROM Shohin GROUP BY shiire_tanka;
 
 - WHERE句で絞ってGROUP BYをする
 ```
-mysql> SELECT shiire_tanka, COUNT(*) FROM Shohin WHERE torokubi = '2009-09-20' GROUP BY shiire_tanka;
+mysql> SELECT shiire_tanka, COUNT(*) 
+  FROM Shohin WHERE torokubi = '2009-09-20'
+ GROUP BY shiire_tanka;
 
 +--------------+----------+
 | shiire_tanka | COUNT(*) |
@@ -212,3 +216,47 @@ mysql> SELECT shiire_tanka, COUNT(*) FROM Shohin WHERE torokubi = '2009-09-20' G
 +--------------+----------+
 ```
 
+#### 集約した結果に条件を指定する(HAVING句)
+- GROUP BYで集約したその集合体に対して条件をしてする句
+- GROUP BY句の後ろにHAVING句を書く
+  - → (SELECT) -> (FROM) -> (WHERE) -> (GROUP BY) -> (HAVING) 
+
+- HAVING句は、定数,集約関数, GROUP BY句で指定した列名が使える
+  - GROUP BY句で絞った列名以外には適用できない
+
+- (大事) WHERE句/HAVING句のどちらに条件式を書くべきか?
+  - WHERE句 : 行に対する条件指定
+  - HAVING句: グループに対する条件指定
+  - 実行速度 : WHERE句 >>> HAVING句
+    -　WHERE句の方が処理が速い 
+
+
+- GROUP BY句で商品分類をしてカウントしその結果に対して行数が2のものに絞る
+```
+mysql> SELECT shohin_bunrui, COUNT(*) 
+  FROM Shohin 
+ GROUP BY shohin_bunrui 
+HAVING COUNT(*) = 2;
+
++---------------+----------+
+| shohin_bunrui | COUNT(*) |
++---------------+----------+
+| 事務用品      |        2 |
+| 衣服          |        2 |
++---------------+----------+
+````
+
+- GROUP BY句で商品分類した単価の平均に対してその平均値が2500以上のものに絞る
+```
+mysql> SELECT shohin_bunrui, AVG(hanbai_tanka) 
+  FROM Shohin 
+ GROUP BY shohin_bunrui 
+HAVING AVG(hanbai_tanka) >= 2500;
+
++--------------------+-------------------+
+| shohin_bunrui      | AVG(hanbai_tanka) |
++--------------------+-------------------+
+| キッチン用品       |         2795.0000 |
+| 衣服               |         2500.0000 |
++--------------------+-------------------+
+```
