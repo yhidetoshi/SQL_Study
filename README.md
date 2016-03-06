@@ -13,7 +13,7 @@
 
 → https://github.com/yhidetoshi/sql_study/blob/master/Section3.md
 
-#### Section4 ()
+#### Section4 (INSERT/DELETE/UPDATE/トランザクション)
 
 → https://github.com/yhidetoshi/sql_study/blob/master/Section4.md
 
