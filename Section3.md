@@ -4,7 +4,7 @@
 - COUNT関数は引数によって動作が異なる
   - COUNT(*)はNULLを含む行数を数える
   - COUNT(<列名>)はNULLを除外した行数を数える
-
+- 集約関数で計算する場合、NULLがあれば除外して計算する
 
 #### KYEWORD
 - COUNT
@@ -29,6 +29,7 @@ mysql> SELECT COUNT(*) FROM Shohin;
 |        8 |
 +----------+
 ```
+
 - テーブルのNULLを除外して行数を数える
 ```
 mysql> SELECT COUNT(shiire_tanka) FROM Shohin;
@@ -40,3 +41,34 @@ mysql> SELECT COUNT(shiire_tanka) FROM Shohin;
 +---------------------+
 ```
 
+- 合計を求める(1つの列)
+```
+mysql> SELECT SUM(hanbai_tanka) FROM Shohin;
++-------------------+
+| SUM(hanbai_tanka) |
++-------------------+
+|             16780 |
++-------------------+
+```
+
+- 合計を求める(2つの列)
+```
+mysql> SELECT SUM(hanbai_tanka), SUM(shiire_tanka) FROM Shohin;
++-------------------+-------------------+
+| SUM(hanbai_tanka) | SUM(shiire_tanka) |
++-------------------+-------------------+
+|             16780 |             12210 |
++-------------------+-------------------+
+```
+
+- 平均を求める
+```
+mysql> SELECT AVG(hanbai_tanka) FROM Shohin;
++-------------------+
+| AVG(hanbai_tanka) |
++-------------------+
+|         2097.5000 |
++-------------------+
+```
+
+- 
