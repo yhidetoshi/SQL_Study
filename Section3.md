@@ -190,6 +190,17 @@ mysql> SELECT SUM(hanbai_tanka), SUM(DISTINCT hanbai_tanka)
 
 - 商品分類ごとの個数を調べる
 ```
+mysql> SELECT shohin_bunrui, COUNT(*)
+    ->   FROM Shohin;
++---------------+----------+
+| shohin_bunrui | COUNT(*) |
++---------------+----------+
+| 衣服          |        8 |
++---------------+----------+
+```
+
+
+```
 mysql> SELECT shohin_bunrui, COUNT(*) 
   FROM Shohin
  GROUP BY shohin_bunrui;
