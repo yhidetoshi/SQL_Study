@@ -75,7 +75,8 @@ mysql> SELECT * FROM ShohinIns;
 
 - DEFAULT定義 (hanbai_tanka  INTEGER      DEFAULT 0) を使ってデータを登録してみる
 ```
-mysql> INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi)       VALUES ('0007', 'Oroshigane', 'kitchen', DEFAULT, 790, '2009-04-28');
+mysql> INSERT INTO ShohinIns (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) 
+  VALUES ('0007', 'Oroshigane', 'kitchen', DEFAULT, 790, '2009-04-28');
 
 mysql> SELECT * FROM ShohinIns;                                                                                                                              +-----------+--------------+---------------+--------------+--------------+------------+
 | shohin_id | shohin_mei   | shohin_bunrui | hanbai_tanka | shiire_tanka | torokubi   |
