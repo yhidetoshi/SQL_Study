@@ -25,6 +25,10 @@
 
 → https://github.com/yhidetoshi/sql_study/blob/master/Section6.md
 
+(not yet)#### Section7 (集合演算(UNION, INTERSECT, EXCEPT)/結合(INER JOIN, OUTER JOIN, CROSS JOIN)/CASE式)
+
+→ https://github.com/yhidetoshi/sql_study/blob/master/Section7.md
+
 
 #### MySQLコマンドメモ
 - Mysqlにrootログイン
