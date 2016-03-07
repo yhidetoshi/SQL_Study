@@ -21,6 +21,10 @@
 
 → https://github.com/yhidetoshi/sql_study/blob/master/Section5.md
 
+#### Section6 (様々な関数/述語(LIKE,BETWEEN,IS NULL,EXIST)/CASE式)
+
+→ https://github.com/yhidetoshi/sql_study/blob/master/Section6.md
+
 
 #### MySQLコマンドメモ
 - Mysqlにrootログイン
