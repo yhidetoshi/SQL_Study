@@ -6,8 +6,19 @@
 
 #### KEYWORD
 - ABS
+  - 絶対値   
 - MOD
+  - 割った余り 
 - ROUND
+  -　四捨五入 
+- CONCAT
+  - 文字列連結
+- LENGTH
+  - 文字列数を数える
+- LOWER
+  - 大文字を小文字に変換
+- REPLACE
+  - 文字列を置き換える 
 
 
 
