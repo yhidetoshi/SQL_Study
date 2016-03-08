@@ -32,6 +32,13 @@
 - CURRENT_TIMESTAMP
   - 現在のタイムスタンプを取得する 
 
+- EXTRACT
+  - 日付要素の切り出し 
+- CAST
+  - 型変換 
+- COALESCE(コォアリース) 
+  - NULLを別のデータに変える時に使う
+
 
 - Tableデータ
 ```
@@ -241,3 +248,35 @@ mysql> SELECT CURRENT_TIMESTAMP;
 | 2016-03-08 09:17:28 |
 +---------------------+
 ```
+
+- EXTRACT(データを取り出す)
+```
+mysql> SELECT CURRENT_TIMESTAMP,
+    -> EXTRACT(YEAR FROM CURRENT_TIMESTAMP) AS year,
+    -> EXTRACT(MONTH FROM CURRENT_TIMESTAMP) AS month,
+    -> EXTRACT(DAY FROM CURRENT_TIMESTAMP) AS day,
+    -> EXTRACT(HOUR FROM CURRENT_TIMESTAMP) AS hour,
+    -> EXTRACT(MINUTE FROM CURRENT_TIMESTAMP) AS minute,
+    -> EXTRACT(SECOND FROM CURRENT_TIMESTAMP) AS second;
+    
++---------------------+------+-------+------+------+--------+--------+
+| CURRENT_TIMESTAMP   | year | month | day  | hour | minute | second |
++---------------------+------+-------+------+------+--------+--------+
+| 2016-03-08 09:40:41 | 2016 |     3 |    8 |    9 |     40 |     41 |
++---------------------+------+-------+------+------+--------+--------+
+```
+
+- CAST(型変換)
+```
+mysql> SELECT CAST('0001' AS SIGNED INTEGER) AS int_col;
+
++---------+
+| int_col |
++---------+
+|       1 |
++---------+
+```
+
+#### 述語
+
+
