@@ -444,3 +444,20 @@ mysql> SELECT shohin_mei, shiire_tanka
 +-----------------------+--------------+
 ```
 
+- IN述語の引数にサブクエリを指定する
+```
+mysql> SELECT shohin_mei, hanbai_tanka
+  FROM Shohin
+ WHERE shohin_id IN (SELECT shohin_id 
+                        FROM TenpoShohin 
+                      WHERE tenpo_id = '000C');
+                      
++-----------------------+--------------+
+| shohin_mei            | hanbai_tanka |
++-----------------------+--------------+
+| カッターシャツ        |         4000 |
+| 包丁                  |         3000 |
+| フォーク              |          500 |
+| おろしがね            |          880 |
++-----------------------+--------------+                      
+```
