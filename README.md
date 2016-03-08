@@ -31,7 +31,7 @@
 → https://github.com/yhidetoshi/sql_study/blob/master/Section7.md
 
 
-#### (not yet) Section8 (Window関数/GROUPING演算子)
+#### Section8 (Window関数/GROUPING演算子)
 
 → https://github.com/yhidetoshi/sql_study/blob/master/Section8.md
 
