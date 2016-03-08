@@ -21,6 +21,7 @@
     - 検索CASE式で単純CASE式で代用できる 
 
   - WHEN/THEN句はプログラミング言語のCASE式と似てる
+  - ELSE区は省略可能。しかし、省略せずに書くこと
   
   
 
@@ -473,4 +474,17 @@ mysql> SELECT shohin_mei, hanbai_tanka
 
 
 #### CASE式
+- CASE式で商品にA,B,Cの文字列を割りあてる
+```
+SELECT shohin_mei,
+	   CASE WHEN shohin_bunrui = '衣服'
+	   		THEN CONCAT('A:',shohin_bunrui)
+	   		WHEN shohin_bunrui = '事務用品'
+	   		THEN CONCAT('B:',shohin_bunrui)
+	   		WHEN shohin_bunrui = 'キッチン用品'
+	   		THEN CONCAT('C:',shohin_bunrui)
+	   		ELSE NULL
+	   	END	AS abc_shohin_bunrui
+FROM Shohin;
+```
 
