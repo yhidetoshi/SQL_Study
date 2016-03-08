@@ -19,7 +19,18 @@
   - 大文字を小文字に変換
 - REPLACE
   - 文字列を置き換える 
+- SUBSTRING
+  - 切り出す
+- UPPER
+  - 小文字を大文字に変換 
 
+
+- CURRENT_DATE
+  - 現在の日付を取得する 
+- CURRENT_TIME
+  - 現在の時間を取得する 
+- CURRENT_TIMESTAMP
+  - 現在のタイムスタンプを取得する 
 
 
 - Tableデータ
@@ -197,3 +208,36 @@ mysql> SELECT str1,str2,str3,
 +--------------------+-----------+--------+--------------------+
 ```
 
+#### 日付関数
+- CURRENT_DATE
+```
+mysql> SELECT CURRENT_DATE;
+
++--------------+
+| CURRENT_DATE |
++--------------+
+| 2016-03-08   |
++--------------+
+```
+
+- CURRENT_TIME
+```
+mysql> SELECT CURRENT_TIME;
+
++--------------+
+| CURRENT_TIME |
++--------------+
+| 09:16:54     |
++--------------+
+```
+
+- CURRENT_TIMESTAMP
+```
+mysql> SELECT CURRENT_TIMESTAMP;
+
++---------------------+
+| CURRENT_TIMESTAMP   |
++---------------------+
+| 2016-03-08 09:17:28 |
++---------------------+
+```
