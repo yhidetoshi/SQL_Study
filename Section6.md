@@ -15,7 +15,14 @@
 
 - BETWEEN(述語, 範囲検索)
 
+- CASE式
+  - 単純CASE式
+  - 検索CASE式
+    - 検索CASE式で単純CASE式で代用できる 
 
+  - WHEN/THEN句はプログラミング言語のCASE式と似てる
+  
+  
 
 #### KEYWORD
 - ABS
@@ -51,6 +58,8 @@
   - 型変換 
 - COALESCE(コォアリース) 
   - NULLを別のデータに変える時に使う
+
+- EXIST熟語は余裕があれば勉強する. -> INで代用できるから
 
 
 - Tableデータ
@@ -461,3 +470,7 @@ mysql> SELECT shohin_mei, hanbai_tanka
 | おろしがね            |          880 |
 +-----------------------+--------------+                      
 ```
+
+
+#### CASE式
+
