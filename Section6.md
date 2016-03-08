@@ -398,3 +398,49 @@ mysql> SELECT shohin_mei, shiire_tanka
 +-----------------------+--------------+
 ```
 
+- ORで複数の仕入れ単価を指定
+```
+mysql> SELECT shohin_mei, shiire_tanka
+  From Shohin 
+ WHERE shiire_tanka = 320 
+    OR shiire_tanka = 500 
+    OR shiire_tanka = 5000;
+
++--------------------+--------------+
+| shohin_mei         | shiire_tanka |
++--------------------+--------------+
+| Tシャツ            |          500 |
+| 穴あけパンチ       |          320 |
+| 圧力鍋             |         5000 |
++--------------------+--------------+
+```
+　　　↓↓↓
+- IN述語で複数の仕入れ単価を指定して検索(1つ上のSQLと同義)
+```
+mysql> SELECT shohin_mei, shiire_tanka
+  FROM Shohin 
+ WHERE shiire_tanka IN (320, 500, 5000);
+
++--------------------+--------------+
+| shohin_mei         | shiire_tanka |
++--------------------+--------------+
+| Tシャツ            |          500 |
+| 穴あけパンチ       |          320 |
+| 圧力鍋             |         5000 |
++--------------------+--------------+
+```
+
+- NOT IN述語で複数の仕入れ単価を指定して検索
+```
+mysql> SELECT shohin_mei, shiire_tanka
+    -> FROM Shohin
+    -> WHERE shiire_tanka NOT IN (320, 500, 5000);
++-----------------------+--------------+
+| shohin_mei            | shiire_tanka |
++-----------------------+--------------+
+| カッターシャツ        |         2800 |
+| 包丁                  |         2800 |
+| おろしがね            |          790 |
++-----------------------+--------------+
+```
+
