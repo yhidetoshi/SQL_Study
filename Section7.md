@@ -81,6 +81,7 @@ mysql> SELECT shohin_id, shohin_mei
 ```
 
 - ALLオプションを使ってみる(重複行を排除しない)
+```
 mysql> SELECT shohin_id, shohin_mei
   FROM Shohin 
 UNION ALL 
@@ -104,4 +105,4 @@ UNION ALL
 | 0009      | 手袋                  |
 | 0010      | やかん                |
 +-----------+-----------------------+
-
+```
