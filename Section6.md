@@ -3,6 +3,19 @@
 #### Rules
 - 算術関数
   - 『+ - * /』で四則演算をして結果を返す関数 
+- LIKE(%)
+  - 部分一致検索を行う時に使う
+  - 前方一致 -> 『文字列%』
+  - 中間一致 -> 『%文字列%』
+  - 後方一致 -> 『%文字列』
+
+- LIKE(-)
+  - 『 _ 』は%と違って任意の1文字
+  - 『 ___ 』だと任意の3文字
+
+- BETWEEN(述語, 範囲検索)
+
+
 
 #### KEYWORD
 - ABS
@@ -278,5 +291,44 @@ mysql> SELECT CAST('0001' AS SIGNED INTEGER) AS int_col;
 ```
 
 #### 述語
+- LIKE (前方一致)
+```
+mysql> SELECT * 
+  FROM SampleLike 
+ WHERE strcol LIKE 'ddd%';
 
++--------+
+| strcol |
++--------+
+| dddabc |
++--------+
+```
+
+- LIKE (後方一致)
+```
+mysql> SELECT * 
+  FROM SampleLike 
+ WHERE strcol LIKE '%ddd';
+
++--------+
+| strcol |
++--------+
+| abcddd |
++--------+
+```
+
+- LIKE (中間一致)
+```
+mysql> SELECT * 
+  FROM SampleLike 
+ WHERE strcol LIKE '%ddd%';
+
++--------+
+| strcol |
++--------+
+| abcddd |
+| abdddc |
+| dddabc |
++--------+
+```
 
