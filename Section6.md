@@ -4,6 +4,12 @@
 - 算術関数
   - 『+ - * /』で四則演算をして結果を返す関数 
 
+#### KEYWORD
+- ABS
+- MOD
+- ROUND
+
+
 
 - Tableデータ
 ```
@@ -28,7 +34,10 @@ mysql> select * FROM SampleMath;
 #### 算術関数
 - 絶対値
 ```
-mysql> SELECT m, ABS(m) AS abs_col FROM SampleMath;
+mysql> SELECT m, 
+  ABS(m) AS abs_col 
+ FROM SampleMath;
+
 +----------+---------+
 | m        | abs_col |
 +----------+---------+
@@ -44,5 +53,136 @@ mysql> SELECT m, ABS(m) AS abs_col FROM SampleMath;
 |     NULL |    NULL |
 |    8.760 |   8.760 |
 +----------+---------+
+```
+
+- MOD関数
+```
+mysql> SELECT n,p, 
+  MOD(n,p) AS mod_col 
+ FROM SampleMath;
+
++------+------+---------+
+| n    | p    | mod_col |
++------+------+---------+
+|    0 | NULL |    NULL |
+|    0 | NULL |    NULL |
+| NULL | NULL |    NULL |
+|    7 |    3 |       1 |
+|    5 |    2 |       1 |
+|    4 | NULL |    NULL |
+| NULL |    3 |    NULL |
+|    1 | NULL |    NULL |
+|    2 | NULL |    NULL |
+|    1 | NULL |    NULL |
+| NULL | NULL |    NULL |
++------+------+---------+
+```
+
+- ROUND関数
+```
+mysql> SELECT m,n, 
+  ROUND(m,n) AS round_col 
+ FROM SampleMath;
+
++----------+------+-----------+
+| m        | n    | round_col |
++----------+------+-----------+
+|  500.000 |    0 |   500.000 |
+| -180.000 |    0 |  -180.000 |
+|     NULL | NULL |      NULL |
+|     NULL |    7 |      NULL |
+|     NULL |    5 |      NULL |
+|     NULL |    4 |      NULL |
+|    8.000 | NULL |      NULL |
+|    2.270 |    1 |     2.300 |
+|    5.555 |    2 |     5.560 |
+|     NULL |    1 |      NULL |
+|    8.760 | NULL |      NULL |
++----------+------+-----------+
+```
+
+#### 文字列関数
+- 文字列の結合 ( CONCAT関数 ) 
+```
+mysql> SELECT str1, str2, str3, 
+  CONCAT(str1, str2, str3) AS str_concat 
+ FROM SampleStr;
+
++--------------------+-----------+--------+--------------------------+
+| str1               | str2      | str3   | str_concat               |
++--------------------+-----------+--------+--------------------------+
+| あいう             | えお      | NULL   | NULL                     |
+| abc                | def       | NULL   | NULL                     |
+| 山田               | 太郎      | です   | 山田太郎です             |
+| aaa                | NULL      | NULL   | NULL                     |
+| NULL               | あああ    | NULL   | NULL                     |
+| @!#$%              | NULL      | NULL   | NULL                     |
+| ABC                | NULL      | NULL   | NULL                     |
+| aBC                | NULL      | NULL   | NULL                     |
+| abc太郎            | abc       | ABC    | abc太郎abcABC            |
+| abcdefabc          | abc       | ABC    | abcdefabcabcABC          |
+| ミックマック       | ッ        | っ     | ミックマックッっ         |
++--------------------+-----------+--------+--------------------------+
+```
+
+- LENGTH関数( 文字列の長さを調べる )
+```
+mysql> SELECT str1, 
+  LENGTH(str1) AS len_str 
+ FROM SampleStr;
+
++--------------------+---------+
+| str1               | len_str |
++--------------------+---------+
+| あいう             |       9 |
+| abc                |       3 |
+| 山田               |       6 |
+| aaa                |       3 |
+| NULL               |    NULL |
+| @!#$%              |       5 |
+| ABC                |       3 |
+| aBC                |       3 |
+| abc太郎            |       9 |
+| abcdefabc          |       9 |
+| ミックマック       |      18 |
++--------------------+---------+
+```
+
+- LOWER関数 ( 文字を小文字に変換する )
+```
+mysql> SELECT str1, LOWER(str1) AS low_str 
+  FROM SampleStr 
+ WHERE str1 IN('ABC', 'aBC', 'abc');
+
++------+---------+
+| str1 | low_str |
++------+---------+
+| abc  | abc     |
+| ABC  | abc     |
+| aBC  | abc     |
++------+---------+
+```
+
+- REPLACE関数 ( 文字列を置き換える )
+```
+mysql> SELECT str1,str2,str3, 
+  REPLACE(str1, str2, str3) AS rep_str 
+ FROM SampleStr;
+
++--------------------+-----------+--------+--------------------+
+| str1               | str2      | str3   | rep_str            |
++--------------------+-----------+--------+--------------------+
+| あいう             | えお      | NULL   | NULL               |
+| abc                | def       | NULL   | NULL               |
+| 山田               | 太郎      | です   | 山田               |
+| aaa                | NULL      | NULL   | NULL               |
+| NULL               | あああ    | NULL   | NULL               |
+| @!#$%              | NULL      | NULL   | NULL               |
+| ABC                | NULL      | NULL   | NULL               |
+| aBC                | NULL      | NULL   | NULL               |
+| abc太郎            | abc       | ABC    | ABC太郎            |
+| abcdefabc          | abc       | ABC    | ABCdefABC          |
+| ミックマック       | ッ        | っ     | ミっクマっク       |
++--------------------+-----------+--------+--------------------+
 ```
 
