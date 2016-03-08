@@ -332,3 +332,69 @@ mysql> SELECT *
 +--------+
 ```
 
+- 販売単価(100〜1000円)の商品を選択 
+ → この書き方だと100と1000が含まれる
+```
+mysql> SELECT shohin_mei, hanbai_tanka 
+  FROM Shohin 
+ WHERE hanbai_tanka BETWEEN 100 AND 1000;
+
++--------------------+--------------+
+| shohin_mei         | hanbai_tanka |
++--------------------+--------------+
+| Tシャツ            |         1000 |
+| 穴あけパンチ       |          500 |
+| フォーク           |          500 |
+| おろしがね         |          880 |
+| ボールペン         |          100 |
++--------------------+--------------+
+```
+
+- 販売単価(101〜999円)の商品を選択
+```
+mysql> SELECT shohin_mei, hanbai_tanka
+  FROM Shohin
+ WHERE hanbai_tanka > 100 
+   AND hanbai_tanka < 1000;
+
++--------------------+--------------+
+| shohin_mei         | hanbai_tanka |
++--------------------+--------------+
+| 穴あけパンチ       |          500 |
+| フォーク           |          500 |
+| おろしがね         |          880 |
++--------------------+--------------+
+```
+
+- IS NULLの判定
+```
+mysql> SELECT shohin_mei, hanbai_tanka 
+  FROM Shohin 
+ WHERE shiire_tanka IS NULL;
+
++-----------------+--------------+
+| shohin_mei      | hanbai_tanka |
++-----------------+--------------+
+| フォーク        |          500 |
+| ボールペン      |          100 |
++-----------------+--------------+
+```
+
+- IS NOT NULLの判定
+```
+mysql> SELECT shohin_mei, shiire_tanka
+  FROM Shohin 
+ WHERE shiire_tanka IS NOT NULL;
+
++-----------------------+--------------+
+| shohin_mei            | shiire_tanka |
++-----------------------+--------------+
+| Tシャツ               |          500 |
+| 穴あけパンチ          |          320 |
+| カッターシャツ        |         2800 |
+| 包丁                  |         2800 |
+| 圧力鍋                |         5000 |
+| おろしがね            |          790 |
++-----------------------+--------------+
+```
+
