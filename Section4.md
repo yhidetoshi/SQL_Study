@@ -110,7 +110,9 @@ mysql> SELECT * FROM ShohinIns;                                                 
 - テーブルをCopyする
   - ShohinCopyテーブルにShohinテーブルのデータをコピー
 ```
-INSERT INTO ShohinCopy (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) SELECT shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka,shiire_tanka, torokubi FROM Shohin;
+INSERT INTO ShohinCopy (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi)
+ SELECT shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka,shiire_tanka, torokubi
+ 	FROM Shohin;
 
 mysql> SELECT * FROM ShohinCopy;
 +-----------+-----------------------+--------------------+--------------+--------------+------------+
