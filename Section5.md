@@ -39,7 +39,7 @@ AS
 <SELECT文>
 ```
 
-- ビューを作成する(合計するビューを作る)
+- ビューを作成する(個数を合計するビューを作る)
 ```
 CREATE VIEW ShohinSum (shohin_bunrui, cnt_shohin)
 AS
