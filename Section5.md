@@ -83,9 +83,7 @@ SELECT shohin_bunrui, cnt_shohin
 #### スカラ・サブクエリ
 - リクエスト例
 ```
-SELECT shohin_id,
-       shohin_mei,
-       hanbai_tanka,
+SELECT shohin_id, shohin_mei, hanbai_tanka,
        
        <---- スカラ・サブクエり --->
        (SELECT AVG(hanbai_tanka)
