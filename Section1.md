@@ -51,9 +51,14 @@ mysql> create database <name_DB>;
 mysql> drop tables <table_name>;
 ```
 
-- テーブル名を変更
+- テーブル名を変更(Oracle PostgreSQL)
 ```
 mysql> ALTER TABLE <変更前のTable_name> RENAME TO <変更後のTable_name>
+```
+
+- テーブル名を変更(MySQL)
+```
+mysql> RENAME TABLE <変更前のTable_name> RENAME to <変更後のTable_name>
 ```
 
 
