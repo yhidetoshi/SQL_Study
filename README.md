@@ -1,6 +1,6 @@
 ## SQLの勉強メモ
 
-
+### 項目
 #### Section1 (テーブルの構成/SQL文/テーブル操作/テーブル登録)
 
 → https://github.com/yhidetoshi/sql_memo/blob/master/Section1.md
@@ -34,6 +34,8 @@
 #### Section8 (Window関数/GROUPING演算子)
 
 → https://github.com/yhidetoshi/sql_study/blob/master/Section8.md
+
+### その他
 
 #### MySQLコマンドメモ
 - Mysqlにrootログイン
