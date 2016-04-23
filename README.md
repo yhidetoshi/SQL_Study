@@ -1,3 +1,5 @@
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/sqi-icon.jpeg)
+
 ## SQLの勉強メモ
 
 ### 項目
