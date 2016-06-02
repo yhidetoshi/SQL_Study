@@ -50,3 +50,60 @@ mysql> SOURCE /<file_path>/<file_name>.sql
 ```
 
 
+
+#### Postgresqlのインストール
+- 環境
+  - CentOS6.7
+  - postgresql
+
+**[インストール]**
+```
+# yum -y install postgresql-server
+# /etc/rc.d/init.d/postgresql initdb
+
+# vi /var/lib/pgsql/data/postgresql.conf
+
+# 59行目：コメント解除して変更 [他ホストからのアクセスも受け付ける]
+listen_addresses = '*'
+
+# 334行目：コメント解除して変更 ( ログの形式を [日時 ユーザー DB ～])
+log_line_prefix = '%t %u %d '
+
+# service postgresql start
+```
+
+**[初期設定]**
+```
+[postgres ユーザーにスイッチしてパスワード設定]
+
+$ psql -c "alter user postgres with password 'password'" 
+ALTER ROLE
+
+[DBユーザー「cent」を新規登録]
+-bash-4.1$ createuser cent 
+Shall the new role be a superuser? (y/n) y 
+
+postgresにログイン
+# su - postgres
+# psql -d postgres
+```
+
+**[DBを作る]**
+```
+postgres=# CREATE DATABASE hoge;
+CREATE DATABASE
+```
+
+**[ユーザを作る]**
+```
+postgres=# CREATE USER testuser;
+CREATE ROLE
+```
+
+**[指定したユーザにパスワードを設定する]**
+```
+postgres=# \password testuser
+Enter new password:
+Enter it again:
+```
+
