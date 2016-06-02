@@ -49,7 +49,7 @@ mysql -u root -p
 mysql> SOURCE /<file_path>/<file_name>.sql
 ```
 
-
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/postgres-image.png)
 
 #### Postgresqlのインストール
 - 環境
