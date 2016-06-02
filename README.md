@@ -138,3 +138,7 @@ postgres-# \du
  testuser  |             | {}
 ```
 
+**[メタコマンドの一覧]**
+```
+postgres-# \?
+```
