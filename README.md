@@ -142,3 +142,6 @@ postgres-# \du
 ```
 postgres-# \?
 ```
+- その他のコマンド一覧の参照
+
+http://ossfan.net/manage/postgresql-05.html
