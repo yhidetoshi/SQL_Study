@@ -107,3 +107,34 @@ Enter new password:
 Enter it again:
 ```
 
+**[データベースの一覧]**
+```
+postgres-# \l
+
+                                  List of databases
+   Name    |  Owner   | Encoding |  Collation  |    Ctype    |   Access privileges
+-----------+----------+----------+-------------+-------------+-----------------------
+ hoge      | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres
+                                                             : postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres
+                                                             : postgres=CTc/postgres
+```
+
+**[ユーザ一覧確認]**
+```
+postgres-# \du
+
+            List of roles
+ Role name | Attributes  | Member of
+-----------+-------------+-----------
+ cent      | Superuser   | {}
+           : Create role
+           : Create DB
+ postgres  | Superuser   | {}
+           : Create role
+           : Create DB
+ testuser  |             | {}
+```
+
