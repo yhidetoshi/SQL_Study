@@ -1,5 +1,8 @@
 #### 検証 MySQL5.6から　にアップデート
 
+- コンンパイルせずにMySQLのインストール
+  - http://altarf.net/computer/server_tips/2418 
+
 ```
 # pwd
 /usr/local/src
