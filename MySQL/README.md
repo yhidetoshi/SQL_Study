@@ -101,6 +101,11 @@ mysql>
 
 #### Mysqlのバージョンを上げる
 
-(前)mysql-5.6.16-linux-glibc2.5-x86_64
+`(前)mysql-5.6.16-linux-glibc2.5-x86_64`
 
-(後)MySQL-5.6.31-1.el6.x86_64
+`(後)MySQL-5.6.31-1.el6.x86_64`
+
+- mysqldumpでバックアップをとる
+  - # /usr/local/mysql/bin/mysqldump -u root -x --all-databases > /root/dump.sql 
+
+
