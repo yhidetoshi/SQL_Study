@@ -3,6 +3,10 @@
 - 環境
   - Vagrant
   - Centos6.5
+  - MySQLのダウンロード：http://dev.mysql.com/downloads/mysql/
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql-glibc-0.png)
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql-glibc-1.png)
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql-glibc-2.png)
 
 **[Mysqlをダウンロードしてインストール]**
 ```
@@ -90,4 +94,4 @@ mysql>
 #### Mysqlのバージョンを上げる
 
 (前)mysql-5.6.16-linux-glibc2.5-x86_64
-(後)
+(後)MySQL-5.6.31-1.el6.x86_64
