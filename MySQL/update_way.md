@@ -1,10 +1,10 @@
-#### コンンパイルせずにMySQLのインストールする(CentOS6.5@Vagrant)
+### コンンパイルせずにMySQLをインストールする(CentOS6.5@Vagrant)
 
 - 環境
   - Vagrant
   - Centos6.5
 
-**[コンパイルせずにMysqlをダウンロードしてインストール]**
+**[Mysqlをダウンロードしてインストール]**
 ```
 # cd /usr/local/src
 # wget http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.16-linux-glibc2.5-x86_64.tar.gz
@@ -63,4 +63,26 @@ Starting MySQL. SUCCESS!
 root      3502  3260  0 04:31 pts/1    00:00:00 tail -f mysqld.log
 root      3512     1  0 04:31 pts/0    00:00:00 /bin/sh /usr/local/mysql/bin/mysqld_safe --datadir=/var/lib/mysql --pid-file=/var/lib/mysql/node2.pid
 mysql     3714  3512  0 04:31 pts/0    00:00:00 /usr/local/mysql/bin/mysqld --basedir=/usr/local/mysql --datadir=/var/lib/mysql --plugin-dir=/usr/local/mysql/lib/plugin --user=mysql --log-error=/var/log/mysqld.log --pid-file=/var/lib/mysql/node2.pid --socket=/var/lib/mysql/mysql.sock
+```
+
+**[MySQLに接続する]**
+```
+# /usr/local/mysql/bin/mysql -u root
+
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+```
+
+**[errorの対処]**
+```
+/etc/my.cnfを変更
+
+#socket=/var/lib/mysql/mysql.sock
+socket=/tmp/mysql.sock
+```
+**[再度接続]**
+```
+# /usr/local/mysql/bin/mysql -u root
+mysql>
+
+無事にログインできた
 ```
