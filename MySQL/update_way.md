@@ -30,3 +30,31 @@ wget http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.16-linux-glibc2.5-x8
 160625 03:36:04 mysqld_safe mysqld from pid file /var/run/mysqld/mysqld.pid ended
 ```
 
+[実行環境を整える]
+```
+/etc/init.d/mysql startをできるようにする
+# cp -pr /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
+# vi/etc/init.d/mysql
+---
+basedir=/usr/local/mysql
+datadir=/usr/local/mysql/data
+---
+```
+
+[/etc/my.cnf]
+```
+[mysqld]
+character-set-server=utf8
+skip-grant-tables
+skip-federated
+datadir=/usr/local/mysql
+socket=/var/lib/mysql/mysql.sock
+user=mysql
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+
+[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+を記述
+```
