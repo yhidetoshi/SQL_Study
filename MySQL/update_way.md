@@ -1,11 +1,8 @@
-#### 検証 MySQL5.6から　にアップデート
-
-- コンンパイルせずにMySQLのインストールする
-  - (参考)http://altarf.net/computer/server_tips/2418 
+#### コンンパイルせずにMySQLのインストールする(CentOS6.5@Vagrant)
 
 - 環境
-  - Vagrant : Centos6.7
-
+  - Vagrant
+  - Centos6.5
 
 **[コンパイルせずにMysqlをダウンロードしてインストール]**
 ```
