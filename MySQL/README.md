@@ -56,6 +56,12 @@
 character-set-server=utf8
 skip-grant-tables
 ---
+
+
+- 起動後に`mysql_upgrade`をする。 
+- mysql_upgradeはOSのmysqlユーザで実行する
+- 最後まで通ったらservice mysqld stop
+- skip-grant-tablesの記述を削除。
 ```
 
 **[起動を確認]**
@@ -90,6 +96,8 @@ mysql>
 
 無事にログインできた
 ```
+
+
 
 #### Mysqlのバージョンを上げる
 
