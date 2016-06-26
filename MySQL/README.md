@@ -16,16 +16,12 @@
 # cd /usr/local/src
 # wget http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.16-linux-glibc2.5-x86_64.tar.gz
 # tar xvzf mysql-5.6.16-linux-glibc2.5-x86_64.tar.gz
-# ln -s /usr/local/src/mysql-5.6.16-linux-glibc2.5-x86_64 mysq
+# ln -s /usr/local/src/mysql-5.6.16-linux-glibc2.5-x86_64 /usr/local/mysql
 # groupadd mysql
 # useradd -r -g mysql mysql
 # chown -R mysql .
 # chgrp -R mysql .
-
-(# /usr/local/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/)
-
 # /usr/local/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql/ --datadir=/var/lib/mysql
-
 ```
 
 **[まず実行環境を整える]**
