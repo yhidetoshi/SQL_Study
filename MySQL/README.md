@@ -28,47 +28,10 @@
 
 ```
 
-**[起動]**
-```
-# bin/mysqld_safe –user=mysql &
-
-→ 下のようにエラーが出る。
----
-[1] 3046
-[root@node2 mysql]# 160625 04:25:50 mysqld_safe Logging to '/var/log/mysqld.log'.
-160625 04:25:50 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
-160625 04:25:53 mysqld_safe mysqld from pid file /var/run/mysqld/mysqld.pid ended
----
-```
-
 **[まず実行環境を整える]**
 ```
 /etc/init.d/mysql startをできるようにする.
 # cp -pr /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
-```
-
-**[改めてエラーログを調べる]**
-```
-# /etc/init.d/mysql start
-
-/var/log/mysqld.log
----
-[ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.
----
-```
-**[エラーの対策]**
-```
-/etc/my.cnfに下記の2行を追加する
----
-character-set-server=utf8
-skip-grant-tables
----
-
-
-- 起動後に`mysql_upgrade`をする。 
-- mysql_upgradeはOSのmysqlユーザで実行する
-- 最後まで通ったらservice mysqld stop
-- skip-grant-tablesの記述を削除。
 ```
 
 **[起動を確認]**
@@ -89,6 +52,7 @@ mysql     3714  3512  0 04:31 pts/0    00:00:00 /usr/local/mysql/bin/mysqld --ba
 ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
 ```
 
+
 **[errorの対処]**
 ```
 /etc/my.cnfを変更
@@ -104,12 +68,17 @@ mysql>
 無事にログインできた
 ```
 
-(課題)
-- `/etc/my.cnf`に`skip-grant-tables`を記述しないとMySQLが起動しない
-- /usr/local/mysql/bin/mysql_upgrade をmysqlユーザで実行できない
-  - 解決策に -u root -pをつけて実行すればいいとあるが、rootパスワードが設定できてない
-  - mysql -u rootでログインしてrootのパスワードを付与しようとするが、`skip-grant-tables`のためエラー
-  
+**[rootパスワードを忘れた時の対処方法]**
+```
+/etc/my.cnfに下記の1行を追加する
+---
+skip-grant-tables
+---
+
+これを追加して、mysqlを起動し、`mysql -u root`でログインできるようになる。
+```
+
+
 
 #### Mysqlのバージョンを上げる
 
