@@ -100,7 +100,12 @@ mysql>
 無事にログインできた
 ```
 
-
+(課題)
+- `/etc/my.cnf`に`skip-grant-tables`を記述しないとMySQLが起動しない
+- /usr/local/mysql/bin/mysql_upgrade をmysqlユーザで実行できない
+  - 解決策に -u root -pをつけて実行すればいいとあるが、rootパスワードが設定できてない
+  - mysql -u rootでログインしてrootのパスワードを付与しようとするが、`skip-grant-tables`のためエラー
+  
 
 #### Mysqlのバージョンを上げる
 
