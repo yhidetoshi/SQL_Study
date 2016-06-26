@@ -21,7 +21,11 @@
 # useradd -r -g mysql mysql
 # chown -R mysql .
 # chgrp -R mysql .
-# /usr/local/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/
+
+(# /usr/local/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/)
+
+# /usr/local/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql/ --datadir=/var/lib/mysql
+
 ```
 
 **[起動]**
