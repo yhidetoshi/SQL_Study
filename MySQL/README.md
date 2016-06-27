@@ -14,7 +14,12 @@
 **[Mysqlをダウンロードしてインストール]**
 ```
 # cd /usr/local/src
+---選択---
 # wget http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.16-linux-glibc2.5-x86_64.tar.gz
+# wget http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.28-linux-glibc2.5-x86_64.tar.gz
+# wget http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.31-linux-glibc2.5-x86_64.tar.gz
+-----------
+
 # tar xvzf mysql-5.6.16-linux-glibc2.5-x86_64.tar.gz
 # ln -s /usr/local/src/mysql-5.6.16-linux-glibc2.5-x86_64 /usr/local/mysql
 # groupadd mysql
