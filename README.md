@@ -1,5 +1,10 @@
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/sqi-icon.jpeg)
 
+## MySQLメモ
+
+-> https://github.com/yhidetoshi/SQL_Study_Basic/blob/master/MySQL/README.md#コンンパイルせずにmysqlをインストールするcentos65vagrant
+
+
 ## SQLの勉強メモ
 
 ### 項目
