@@ -2,7 +2,11 @@
 
 ## MySQLメモ
 
--> https://github.com/yhidetoshi/SQL_Study_Basic/blob/master/MySQL/README.md#コンンパイルせずにmysqlをインストールするcentos65vagrant
+### 項目
+
+#### MySQLをコンパル済みのモジュールを使ってインストール/アップデートする
+
+→ https://github.com/yhidetoshi/SQL_Study_Basic/blob/master/MySQL/README.md#コンンパイルせずにmysqlをインストールするcentos65vagrant
 
 
 ## SQLの勉強メモ
