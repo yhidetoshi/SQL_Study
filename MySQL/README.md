@@ -314,3 +314,5 @@ root     11012 10412  0 14:54 pts/1    00:00:00 grep mysql
 #### Mysqlを5.6.28から5.6.31へアップデートできた。
 
 #####別の方法で試してみる。
+tar xvzf mysql-5.6.16-linux-glibc2.5-x86_64.tar.gz
+→ 解凍したら/etc/my.cnfが生成された
