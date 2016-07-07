@@ -316,3 +316,21 @@ root     11012 10412  0 14:54 pts/1    00:00:00 grep mysql
 #####別の方法で試してみる。
 tar xvzf mysql-5.6.16-linux-glibc2.5-x86_64.tar.gz
 → 解凍したら/etc/my.cnfが生成された
+
+後でちゃんとまとめます。
+```
+# /etc/init.d/mysql start
+Starting MySQL. SUCCESS!
+
+
+2016-07-07 15:59:04 3820 [Note] /usr/local/mysql/bin/mysqld: ready for connections.
+Version: '5.6.16'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  MySQL Community Server (GPL)
+
+
+# /etc/init.d/mysql start
+Starting MySQL. SUCCESS!
+
+
+2016-07-07 16:20:02 10164 [Note] /usr/local/mysql/bin/mysqld: ready for connections.
+Version: '5.6.31'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  MySQL Community Server (GPL)
+```
