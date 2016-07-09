@@ -225,5 +225,5 @@ Version: '5.6.31'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  MySQL Commun
 
 ### MySQLのレプリケーション
 
-![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql_rep_icon.png)
-![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql-rep2.png)
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql_rep_icon.png)![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql-rep.png)
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql-rep3.png)
