@@ -222,3 +222,7 @@ Starting MySQL. SUCCESS!
 2016-07-07 16:20:02 10164 [Note] /usr/local/mysql/bin/mysqld: ready for connections.
 Version: '5.6.31'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  MySQL Community Server (GPL)
 ```
+
+### MySQLのレプリケーション
+
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql-rep.png)
