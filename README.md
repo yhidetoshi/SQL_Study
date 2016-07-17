@@ -2,17 +2,18 @@
 
 ## MySQLメモ
 
-### 項目
+## 項目
 
-#### MySQLをコンパル済みのモジュールを使ってインストール/アップデートする
+### MySQLをコンパル済みのモジュールを使ってインストール/アップデートする
 
 → https://github.com/yhidetoshi/SQL_Study_Basic/blob/master/MySQL/README.md#コンンパイルせずにmysqlをインストールするcentos65vagrant
 
 
+
 ## SQLの勉強メモ
 
-### 項目
-#### Section1 (テーブルの構成/SQL文/テーブル操作/テーブル登録)
+## 項目
+### Section1 (テーブルの構成/SQL文/テーブル操作/テーブル登録)
 
 → https://github.com/yhidetoshi/sql_memo/blob/master/Section1.md
 
