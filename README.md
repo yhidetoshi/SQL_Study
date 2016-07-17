@@ -11,6 +11,9 @@
 #### Mysqlをアップデートする。（コンパイル済み版）
 https://github.com/yhidetoshi/SQL_Study_Basic/blob/master/MySQL/README.md#mysqlのバージョンを上げる5628から5631へアップデート
 
+### MySQLのレプリケーションを設定する
+https://github.com/yhidetoshi/SQL_Study_Basic/blob/master/MySQL/README.md#mysqlのレプリケーション
+
 
 ## SQLの勉強メモ
 
