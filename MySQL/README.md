@@ -227,3 +227,71 @@ Version: '5.6.31'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  MySQL Commun
 
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql_rep_icon.png)![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql-rep.png)
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/SQL_Study_Basic/mysql-rep3.png)
+
+**[検証環境]**
+```
+Vagrant(CentOS6.7)@Mac_Local
+
+[Master: 192.168.1.21] <-----> [Slave: 192.168.33.11]
+```
+
+
+**[Master側の設定]**
+- スレーブ側から
+```
+# CREATE USER repl;
+# GRANT REPLICATION SLAVE ON *.* TO 'repl'@'192.168.33./255.255.255.0' IDENTIFIED BY 'password';
+
+# vim /etc/my.cnf
+[mysqld]
+log-bin=/var/log/mysql/master-bin
+log-bin-index = /var/log/mysql/master-bin
+server-id=1001
+```
+
+**[マスター側でFileとPositionを確認]**
+`mysql> show master status\G;`
+```
++------------------+----------+--------------+------------------+-------------------+
+| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
++------------------+----------+--------------+------------------+-------------------+
+| mysql-bin.000003 |     1010 |              |                  |                   |
++------------------+----------+--------------+------------------+-------------------+
+```
+
+**[Slaveの設定]**
+```
+[mysqld]
+log-bin=/var/log/mysql/master-bin
+log-bin-index = /var/log/mysql/master-bi
+server-id=1002
+
+#mysql再起動
+
+(*) マスターで確認したFileとPostionを入れる
+mysql>
+CHANGE MASTER TO
+MASTER_HOST='192.168.1.21',
+MASTER_USER='repl',
+MASTER_PASSWORD='password',
+MASTER_LOG_FILE='mysql-bin.000003',
+MASTER_LOG_POS=1010;
+
+mysql> START SLAVE;
+```
+
+**[Slaveの状態確認]**
+`mysql> SHOW SLAVE STATUS\G`
+```
+*************************** 1. row ***************************
+        <-----  省略   ------->                 
+             Slave_IO_Running: Connecting
+             Slave_SQL_Running: Yes
+        <-----  省略   ------->
+```
+
+[下記2つのパラメータが2つとも Yes になっている必要がある]
+```
+Slave_IO_Running: Connecting
+Slave_SQL_Running: Yes
+```
