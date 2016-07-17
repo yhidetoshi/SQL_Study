@@ -57,7 +57,7 @@ ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mys
 
 **[errorの対処]**
 ```
-/etc/my.cnfを変更
+my.cnfを変更
 
 #socket=/var/lib/mysql/mysql.sock
 socket=/tmp/mysql.sock
@@ -72,7 +72,7 @@ mysql>
 
 **[rootパスワードを忘れた時の対処方法]**
 ```
-/etc/my.cnfに下記の1行を追加する
+my.cnfに下記の1行を追加する
 ---
 skip-grant-tables
 ---
