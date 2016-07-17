@@ -327,6 +327,7 @@ GRANT REPLICATION SLAVE ON *.* TO 'repl'@'192.168.1.0/255.255.255.0' IDENTIFIED 
 `mysql> create database newhogeeee;`を追加.Slave側で確認。
 ```
 (追加前)
+mysql> show databases;
 +--------------------+
 | Database           |
 +--------------------+
@@ -341,7 +342,9 @@ GRANT REPLICATION SLAVE ON *.* TO 'repl'@'192.168.1.0/255.255.255.0' IDENTIFIED 
 ```
 
 ```
+[Slave側で確認]
 (追加後)
+mysql> show databases;
 +--------------------+
 | Database           |
 +--------------------+
