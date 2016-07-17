@@ -237,7 +237,7 @@ Vagrant(CentOS6.7)@Mac_Local
 
 
 **[Master側の設定]**
-- スレーブ側から
+- スレーブ側からマスターに接続できる必要がある
 ```
 # CREATE USER repl;
 # GRANT REPLICATION SLAVE ON *.* TO 'repl'@'192.168.33./255.255.255.0' IDENTIFIED BY 'password';
@@ -250,6 +250,7 @@ server-id=1001
 ```
 
 **[マスター側でFileとPositionを確認]**
+
 `mysql> show master status\G;`
 ```
 +------------------+----------+--------------+------------------+-------------------+
