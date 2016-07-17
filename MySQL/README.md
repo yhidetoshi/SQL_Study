@@ -241,6 +241,7 @@ Vagrant(CentOS6.7)@Mac_Local
 ```
 # CREATE USER repl;
 # GRANT REPLICATION SLAVE ON *.* TO 'repl'@'192.168.33./255.255.255.0' IDENTIFIED BY 'password';
+(*)Vagrantの場合、VM間の通信経路を確認した方が良い。
 
 # vim /etc/my.cnf
 [mysqld]
@@ -286,13 +287,71 @@ mysql> START SLAVE;
 ```
 *************************** 1. row ***************************
         <-----  省略   ------->                 
-             Slave_IO_Running: Connecting
-             Slave_SQL_Running: Yes
+            Slave_IO_Running: Connecting
+           Slave_SQL_Running: Yes
+        <-----  省略   ------->
+```
+上のパラメータは2つともYesになっている必要がある。
+
+**[エラーログを確認]**
+```
+2016-07-17 11:40:52 16009 [ERROR] Slave I/O: Master command COM_REGISTER_SLAVE failed: Access denied for user 'repl'@'%' (using password: YES) (Errno: 1045), Error_code: 1597
+
+→ SlaveからMasterへの接続(replユーザ)での接続ができていない事を確認
+```
+
+**[SlaveからMasterへリモート接続できるかを確認]**
+```
+# /usr/local/mysql/bin/mysql -h 192.168.1.21 -u repl -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'repl'@'192.168.1.1' (using password: YES)
+```
+(*)本環境だとVagrantの環境設定上、192.168.1.1から接続を許可する必要があった。
+```
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'192.168.1.0/255.255.255.0' IDENTIFIED BY 'PASSWORD';
+```
+
+
+`mysql> SHOW SLAVE STATUS\G`
+```
+*************************** 1. row ***************************
+        <-----  省略   ------->                 
+            Slave_IO_Running: Yes
+           Slave_SQL_Running: Yes
         <-----  省略   ------->
 ```
 
-[下記2つのパラメータが2つとも Yes になっている必要がある]
+
+**[Master側でデータベースを追加してみる]**
+
+`mysql> create database newhogeeee;`を追加.Slave側で確認。
 ```
-Slave_IO_Running: Connecting
-Slave_SQL_Running: Yes
+(追加前)
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| hoge111            |
+| hoge112            |
+| hoge999            |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+```
+
+```
+(追加後)
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| hoge111            |
+| hoge112            |
+| hoge999            |
+| mysql              |
+| newhogeeee         |
+| performance_schema |
+| test               |
++--------------------+
 ```
